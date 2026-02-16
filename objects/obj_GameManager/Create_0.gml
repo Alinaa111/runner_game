@@ -29,6 +29,8 @@ speed_prev = global.game_speed;
 
 game_fps = game_get_speed(gamespeed_fps);
 
+ground_y = 448;
+
 // Music
 if (!audio_is_playing(snd_music)) {
     audio_play_sound(snd_music, 1, true); 

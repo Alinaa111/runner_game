@@ -19,7 +19,6 @@ if (roll < obstacle_ground_chance) {
 else if (roll < obstacle_ground_chance + coin_chance) {
     spawn_y = irandom_range(310, 410);
     instance_create_layer(spawn_x, spawn_y, "Instances", obj_Coin);
-	instance_create_layer(spawn_x, spawn_y, "Instances", obj_Bonus_Fly);
 }
 
 /// 10% — Air obstacle

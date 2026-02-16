@@ -4,7 +4,7 @@ var target_yscale = 1;
 if (obj_GameManager.state == GameState.GAME) {
 	// Flying mode
 	
-	if (grav == 0) {
+	if (is_flying) {
         var next_x = x;
 		var next_y = y;
 
@@ -17,10 +17,15 @@ if (obj_GameManager.state == GameState.GAME) {
 		var cam = view_camera[0];
 		var view_left  = camera_get_view_x(cam);
 		var view_right = view_left + camera_get_view_width(cam);
+		var view_top = camera_get_view_y(cam);
+		var view_bottom = view_top + camera_get_view_height(cam);
 
-		//next_x = clamp(next_x, view_left + sprite_width/2, view_right - sprite_width/2);
-		//next_y = clamp(next_y, 192, 384);
+		var h = bbox_bottom - bbox_top;
 
+		next_x = clamp(next_x, view_left + sprite_width * 2, view_right - sprite_width * 6);
+		next_y = clamp(next_y, view_top, obj_GameManager.ground_y - h);
+
+		
 		// APPLY movement ONCE
 		x = next_x;
 		y = next_y;

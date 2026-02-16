@@ -26,6 +26,8 @@
   },
   "name":"runner_tester_alina",
   "resources":[
+    {"id":{"name":"fnt_bonus","path":"fonts/fnt_bonus/fnt_bonus.yy",},},
+    {"id":{"name":"fnt_desc","path":"fonts/fnt_desc/fnt_desc.yy",},},
     {"id":{"name":"fnt_main","path":"fonts/fnt_main/fnt_main.yy",},},
     {"id":{"name":"obj_Background_Game","path":"objects/obj_Background_Game/obj_Background_Game.yy",},},
     {"id":{"name":"obj_Background_Main","path":"objects/obj_Background_Main/obj_Background_Main.yy",},},

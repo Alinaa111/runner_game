@@ -234,8 +234,8 @@
   "maintainGms1Font":false,
   "name":"fnt_main",
   "parent":{
-    "name":"runner_tester_alina",
-    "path":"runner_tester_alina.yyp",
+    "name":"Fonts",
+    "path":"folders/Fonts.yy",
   },
   "pointRounding":0,
   "ranges":[

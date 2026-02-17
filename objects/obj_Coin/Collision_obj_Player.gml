@@ -12,4 +12,5 @@ part_type_alpha2(pt, 1, 0);
 
 part_particles_create(ps, x, y, pt, 10);
 
+global.run_coins += 1;
 instance_destroy(); 

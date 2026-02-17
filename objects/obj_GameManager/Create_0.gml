@@ -16,6 +16,12 @@ state = GameState.MENU;
 prev_state = state;
 
 global.run_coins = 0;
+global.total_coins = 0;
+
+ini_open("save.ini");
+global.total_coins = ini_read_real("Save", "Coins", 0);
+ini_close();
+
 
 global.base_game_speed = 8;
 
@@ -37,3 +43,14 @@ if (!audio_is_playing(snd_music)) {
 }
 
 
+// Текущие скины
+global.skin_current = 0;
+
+// Какие скины открыты
+global.skin_unlocked = array_create(3, false); 
+global.skin_unlocked[0] = true; // basic skin is open
+
+// Цены скинов
+global.skin_price = array_create(10, 0);
+global.skin_price[1] = 200;
+global.skin_price[2] = 500;

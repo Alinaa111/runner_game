@@ -10,7 +10,7 @@ var icon_spacing = 8;
 
 var y_cursor = y0;
 
-//  SCORE (always)
+//  GAME SCORE
 var score_text = "SCORE: " + string(floor(global.player_score));
 
 draw_set_color(c_black);
@@ -32,6 +32,33 @@ var pl = noone;
 if (instance_exists(obj_Player)) {
     pl = instance_find(obj_Player, 0);
 }
+
+// --- COIN SCORE ---
+var margin = 70;
+var x_pos = room_width - margin - sprite_get_width(spr_Coin);
+var y_pos = margin; 
+
+draw_sprite(spr_Coin, 0, x_pos, y_pos);
+
+// Draw coin count
+draw_set_color(c_yellow);
+draw_set_font(fnt_bonus);
+
+var coins_to_show = 0;  
+
+switch(state) {
+    case GameState.MENU:
+        // Total score in menu
+        coins_to_show = global.total_coins;
+        break;
+    case GameState.GAME:
+        // Current coins in the game
+        coins_to_show = global.run_coins;
+        break;
+}
+
+draw_text(x_pos + sprite_get_width(spr_Coin) + icon_spacing, y_pos + 8, string(coins_to_show));
+
 
 // --- BONUS ICONS ---
 

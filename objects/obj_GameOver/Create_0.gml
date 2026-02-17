@@ -3,7 +3,10 @@ fade_alpha = 0;
 
 restart_delay = obj_GameManager.game_fps * 0.5;
 
-// Create obj_GameOver
+restart_btn = noone;
+menu_btn = noone;
+
+
 if (file_exists("save.ini")) {
     ini_open("save.ini");
     high_score = ini_read_real("Scores", "HighScore", 0);

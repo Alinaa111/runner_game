@@ -3,37 +3,52 @@ if (state != prev_state) {
     switch (state) {
 
         case GameState.MENU:
+			with (obj_Button_Restart) instance_destroy();
+			with (obj_Button_Menu) instance_destroy();
+			
+			global.player_score = 0;
+			global.run_coins = 0;
             room_goto(rm_Main);
+
             break;
 
         case GameState.GAME:
 			global.player_score = 0;
 		    global.game_speed = 8;
+			global.run_coins = 0;
+			
+			with (obj_Button_Restart) instance_destroy();
+			with (obj_Button_Menu) instance_destroy();
 
 		    room_goto(rm_Game);
+			
 		    break;
 
         case GameState.GAMEOVER:
+			global.total_coins += global.run_coins;
+            global.run_coins = 0;
+            ini_open("save.ini");
+            ini_write_real("Save", "Coins", global.total_coins);
+            ini_close();
             break;
     }
 
     prev_state = state;
 }
 
+// Game Logic
 switch (state) {
 	case GameState.MENU: 
 		break;
 		
 	case GameState.GAME:
 	
-		// Scoring
+		// Score
 		global.player_score += global.game_speed * 0.1;
     
 		// Gradual acceleration
 		global.game_speed += 0.0005;
-		if (global.game_speed > 20) {
-		    global.game_speed = 20;
-		}
+		if (global.game_speed > 20) global.game_speed = 20;
 	
 		// Ground movement (TILEMAP)
 		var tile_layer = layer_get_id("Tiles");
@@ -50,7 +65,6 @@ switch (state) {
 		break;
 		
 	case GameState.GAMEOVER:
-		//global.game_over = true;
 		break;
 }
 	

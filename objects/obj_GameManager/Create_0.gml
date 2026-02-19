@@ -9,7 +9,8 @@ persistent = true;
 enum GameState {
     MENU,
     GAME,
-    GAMEOVER
+    GAMEOVER,
+	STORE
 }
 
 state = GameState.MENU;
@@ -22,6 +23,7 @@ ini_open("save.ini");
 global.total_coins = ini_read_real("Save", "Coins", 0);
 ini_close();
 
+btn_start = noone;
 
 global.base_game_speed = 8;
 
@@ -43,14 +45,23 @@ if (!audio_is_playing(snd_music)) {
 }
 
 
-// Текущие скины
+// Current skin
 global.skin_current = 0;
 
-// Какие скины открыты
+// Unlocked skins
 global.skin_unlocked = array_create(3, false); 
 global.skin_unlocked[0] = true; // basic skin is open
 
-// Цены скинов
+// Skin prices
 global.skin_price = array_create(10, 0);
 global.skin_price[1] = 200;
 global.skin_price[2] = 500;
+
+
+function destroy_all_buttons() {
+    with (obj_Button_Start) instance_destroy();
+    with (obj_Button_Shop) instance_destroy();
+    with (obj_Button_Restart) instance_destroy();
+    with (obj_Button_Menu) instance_destroy();
+	with (obj_Btn_Shop_GameOver) instance_destroy();
+}

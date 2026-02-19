@@ -5,6 +5,8 @@ if (state != prev_state) {
         case GameState.MENU:
 			with (obj_Button_Restart) instance_destroy();
 			with (obj_Button_Menu) instance_destroy();
+			with (obj_Button_Shop) instance_destroy();
+			with (obj_Btn_Shop_GameOver) instance_destroy();
 			
 			global.player_score = 0;
 			global.run_coins = 0;
@@ -17,8 +19,7 @@ if (state != prev_state) {
 		    global.game_speed = 8;
 			global.run_coins = 0;
 			
-			with (obj_Button_Restart) instance_destroy();
-			with (obj_Button_Menu) instance_destroy();
+			destroy_all_buttons();
 
 		    room_goto(rm_Game);
 			
@@ -31,6 +32,13 @@ if (state != prev_state) {
             ini_write_real("Save", "Coins", global.total_coins);
             ini_close();
             break;
+		
+		case GameState.STORE:
+			destroy_all_buttons()
+			
+			room_goto(rm_Store);
+            break;
+		
     }
 
     prev_state = state;
@@ -39,10 +47,30 @@ if (state != prev_state) {
 // Game Logic
 switch (state) {
 	case GameState.MENU: 
+		if (!instance_exists(btn_start)) {
+
+		    var cx = display_get_gui_width() / 2;
+		    var cy = display_get_gui_height() / 2;
+
+		    btn_start = instance_create_layer(
+		        cx,
+		        cy - 80, 
+		        "GUI",
+		        obj_Button_Start
+		    );
+
+		    btn_shop = instance_create_layer(
+		        cx,
+		        cy + 100,  
+		        "GUI",
+		        obj_Button_Shop
+		    );
+		}
+
 		break;
 		
 	case GameState.GAME:
-	
+		
 		// Score
 		global.player_score += global.game_speed * 0.1;
     
@@ -65,6 +93,9 @@ switch (state) {
 		break;
 		
 	case GameState.GAMEOVER:
+		break;
+		
+	case GameState.STORE:
 		break;
 }
 	

@@ -5,15 +5,15 @@ var spr_h = sprite_get_height(global.skin_preview[skin_id]);
 
 var padding = 20;
 
-var rect_left = x - spr_w/2 + padding;
-var rect_top = y - spr_h/2 - padding;
-var rect_right = x + spr_w/2 - padding;
-var rect_bottom = y + spr_h/2 + padding;
+rect_left = x - spr_w/2 + 40;
+rect_top = y - spr_h/2 - padding;
+rect_right = x + spr_w/2 - 40;
+rect_bottom = y + spr_h/2 + padding;
 
 draw_set_font(fnt_main);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top); 
-	
+
 // Blackout
 if (!global.skin_unlocked[skin_id]) {
     draw_set_color(c_black);

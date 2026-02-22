@@ -12,4 +12,3 @@ if (!global.skin_unlocked[skin_id]) {
 else {
     global.skin_current = skin_id;
 }
-

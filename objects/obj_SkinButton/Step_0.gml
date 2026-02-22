@@ -1,34 +1,19 @@
 hover = point_in_rectangle(
     mouse_x, mouse_y,
-    x - sprite_width/2,
-    y - sprite_height/2,
-    x + sprite_width/2,
-    y + sprite_height/2
+    rect_left, rect_top,
+    rect_right, rect_bottom
 );
 
 if (hover && mouse_check_button_pressed(mb_left)) {
-    if (global.skin_unlocked[skin_id])
-    {
-        global.skin_current = skin_id;
-    }
-    else
-    {
-        if (global.total_coins >= global.skin_price)
-        {
-            global.total_coins -= global.skin_price;
-            global.skin_unlocked[skin_id] = true;
-        }
-    }
-}
-
-if (hover && mouse_check_button_pressed(mb_left)) {
+	var price = global.skin_price[skin_id];
+	
     if (global.skin_unlocked[skin_id]) {
-		// choose unlocjed skin
+		// choose unlocked skin
         global.skin_current = skin_id;
     } else {
         // buy skin
-        if (global.total_coins >= global.skin_price) {
-            global.total_coins -= global.skin_price;
+        if (global.total_coins >= price) {
+            global.total_coins -= price;
             global.skin_unlocked[skin_id] = true;
             global.skin_current = skin_id;
         } else {
@@ -49,5 +34,6 @@ if (hover && mouse_check_button_pressed(mb_left)) {
     ini_open("save.ini");
     ini_write_real("Save", "Coins", global.total_coins);
     ini_write_real("Save", "Skin", global.skin_current);
+    ini_write_real("Save", "Skin_" + string(skin_id), global.skin_unlocked[skin_id]);
     ini_close();
 }

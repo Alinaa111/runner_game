@@ -19,9 +19,17 @@ prev_state = state;
 global.run_coins = 0;
 global.total_coins = 0;
 
+// Unlocked skins
+global.skin_count = 3;
+global.skin_unlocked = array_create(global.skin_count, false);
+global.skin_unlocked[0] = true; // basic skin is open
+
 ini_open("save.ini");
 global.total_coins = ini_read_real("Save", "Coins", 0);
 global.skin_current = ini_read_real("Save", "Skin", 0);
+for (var i = 1; i < global.skin_count; i++) {
+    global.skin_unlocked[i] = ini_read_real("Save", "Skin_" + string(i), false);
+}
 ini_close();
 
 
@@ -38,11 +46,6 @@ speed_prev = global.game_speed;
 game_fps = game_get_speed(gamespeed_fps);
 
 ground_y = 448;
-
-// Unlocked skins
-global.skin_count = 3;
-global.skin_unlocked = array_create(global.skin_count, false);
-global.skin_unlocked[0] = true; // basic skin is open
 
 // Skin array
 global.skin_preview = array_create(3);

@@ -13,4 +13,4 @@ squash_amount = 0.2;
 stretch_amount = 0.3;  
 lerp_speed = 0.2;
 
-mask_index = spr_Player_Run;
+mask_index = spr_Player_0_Run;

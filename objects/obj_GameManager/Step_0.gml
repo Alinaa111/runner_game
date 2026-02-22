@@ -3,10 +3,9 @@ if (state != prev_state) {
     switch (state) {
 
         case GameState.MENU:
-			with (obj_Button_Restart) instance_destroy();
-			with (obj_Button_Menu) instance_destroy();
-			with (obj_Button_Shop) instance_destroy();
-			with (obj_Btn_Shop_GameOver) instance_destroy();
+			with (obj_Button_Back) instance_destroy();
+			destroy_gameover_buttons();
+			destroy_store_buttons();
 			
 			global.player_score = 0;
 			global.run_coins = 0;
@@ -19,7 +18,9 @@ if (state != prev_state) {
 		    global.game_speed = 8;
 			global.run_coins = 0;
 			
-			destroy_all_buttons();
+			destroy_gameover_buttons();
+			destroy_menu_buttons();
+			destroy_store_buttons();
 
 		    room_goto(rm_Game);
 			
@@ -34,7 +35,8 @@ if (state != prev_state) {
             break;
 		
 		case GameState.STORE:
-			destroy_all_buttons()
+			destroy_gameover_buttons();
+			destroy_menu_buttons();
 			
 			room_goto(rm_Store);
             break;

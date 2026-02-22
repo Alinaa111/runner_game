@@ -3,17 +3,20 @@ if (instance_number(obj_StoreManager) > 1) {
     exit;
 }
 
-// Button / sprite positions
-skin_count = 3; 
-skin_spacing = 150;
-start_x = display_get_gui_width()/2 - (skin_count-1)*skin_spacing/2;
-y_pos = display_get_gui_height()/2;
-
-// Button for every skin
-for (var i=0; i<skin_count; i++) {
-    var b = instance_create_layer(start_x + i*skin_spacing, y_pos, "GUI", obj_StoreButton);
-    b.skin_id = i;
-}
-
-
 back_btn = noone;
+
+global.skin_price[0] = 0;   
+global.skin_price[1] = 100; 
+global.skin_price[2] = 200;  
+
+var cx = display_get_gui_width()/2;
+var cy = display_get_gui_height()/2;
+
+var spacing = 300;
+
+for (var i = 0; i < global.skin_count; i++) {
+    var btn = instance_create_layer(cx + (i-1)*spacing, cy, "GUI", obj_SkinButton);
+    
+    btn.skin_id = i;
+    
+}

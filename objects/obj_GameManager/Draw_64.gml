@@ -57,6 +57,11 @@ switch(state) {
         coins_to_show = global.run_coins;
 		draw_text(x_pos + sprite_get_width(spr_Coin) + icon_spacing, y_pos, string(coins_to_show));
         break;
+	case GameState.STORE:
+        // Total score in menu
+        coins_to_show = global.total_coins;
+		draw_text(x_pos + sprite_get_width(spr_Coin) + icon_spacing, y_pos, string(coins_to_show));
+        break;
 }
 
 

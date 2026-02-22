@@ -30,7 +30,7 @@ if (obj_GameManager.state == GameState.GAME) {
 		x = next_x;
 		y = next_y;
 		
-        sprite_index = spr_Player_Fly;
+        sprite_index = spr_Player_0_Fly;
     }
   
 	// Basic mode
@@ -62,9 +62,9 @@ if (obj_GameManager.state == GameState.GAME) {
 		
 		// Change sprite
         if (place_meeting(x, y + 1, obj_Ground)) {
-            sprite_index = spr_Player_Run;
+            sprite_index = spr_Player_0_Run;
         } else {
-            sprite_index = spr_Player_Jump;
+            sprite_index = spr_Player_0_Jump;
         }
     }
 }

@@ -38,12 +38,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_Player_Run",
-    "path":"sprites/spr_Player_Run/spr_Player_Run.yy",
+    "name":"spr_Player_0_Run",
+    "path":"sprites/spr_Player_0_Run/spr_Player_0_Run.yy",
   },
   "spriteMaskId":{
-    "name":"spr_Player_Run",
-    "path":"sprites/spr_Player_Run/spr_Player_Run.yy",
+    "name":"spr_Player_0_Run",
+    "path":"sprites/spr_Player_0_Run/spr_Player_0_Run.yy",
   },
   "visible":true,
 }

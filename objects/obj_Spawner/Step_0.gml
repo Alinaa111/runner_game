@@ -1,5 +1,4 @@
 ///  UPDATE DIFFICULTY 
-
 difficulty_timer += 1;
 
 // every 60 frames (1 sec) speed ups

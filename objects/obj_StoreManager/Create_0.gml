@@ -18,5 +18,4 @@ for (var i = 0; i < global.skin_count; i++) {
     var btn = instance_create_layer(cx + (i-1)*spacing, cy, "GUI", obj_SkinButton);
     
     btn.skin_id = i;
-    
 }

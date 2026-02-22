@@ -1,5 +1,4 @@
 ///  SPAWN LOGIC 
-
 var roll = random(1);
 var spawn_x = x;  
 var spawn_y;
@@ -9,25 +8,25 @@ var obstacle_ground_chance = 0.55 + (0.05 * (difficulty_level - 1)); // +5% for 
 var coin_chance = 0.30 - (0.05 * (difficulty_level - 1));           // coins go rarely
 var obstacle_air_chance = 0.10 + (0.05 * (difficulty_level - 1));   // +5% for every level
 
-/// 55% — Ground obstacle
+// 55% — Ground obstacle
 if (roll < obstacle_ground_chance) {
     spawn_y = 448;
     instance_create_layer(spawn_x, spawn_y, "Instances", obj_Obstacle_Ground);
 }
 
-/// 30% — Coin
+// 30% — Coin
 else if (roll < obstacle_ground_chance + coin_chance) {
     spawn_y = irandom_range(310, 410);
     instance_create_layer(spawn_x, spawn_y, "Instances", obj_Coin);
 }
 
-/// 10% — Air obstacle
+// 10% — Air obstacle
 else if (roll < obstacle_ground_chance + coin_chance + obstacle_air_chance) {
     spawn_y = irandom_range(330, 400);
     instance_create_layer(spawn_x, spawn_y, "Instances", obj_Obstacle_Air);
 }
 
-/// 5% — Rare items
+// 5% — Rare items
 else {
     spawn_y = irandom_range(310, 410);
     var bonus_roll = random(1);
@@ -44,7 +43,6 @@ else {
 
 
 ///  SPAWN TIMER 
-
 var alarm_time = base_spawn_time * (8 / global.game_speed);
 alarm_time = clamp(alarm_time, min_spawn_time, max_spawn_time);
 

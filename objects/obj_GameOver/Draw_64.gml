@@ -13,6 +13,3 @@ if (obj_GameManager.state == GameState.GAMEOVER) {
     draw_text(cx, cy, "SCORE: " + string(floor(global.player_score)));
     draw_text(cx, cy + sep, "BEST: " + string(floor(high_score)));
 }
-
-
-

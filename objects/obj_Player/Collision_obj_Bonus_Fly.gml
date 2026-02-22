@@ -1,9 +1,9 @@
 vsp = 0;
 grav = 0;              
 image_blend = c_aqua;  
-sprite_index = spr_Player_0_Fly;
 is_flying = true;
-mask_index = spr_Player_0_Fly;
+sprite_index = spr_fly;
+mask_index = spr_fly;
 
 
 alarm[0] = obj_GameManager.game_fps * 7;

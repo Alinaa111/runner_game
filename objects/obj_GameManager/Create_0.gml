@@ -49,19 +49,30 @@ if (!audio_is_playing(snd_music)) {
 global.skin_current = 0;
 
 // Unlocked skins
-global.skin_unlocked = array_create(3, false); 
+global.skin_count = 3;
+global.skin_unlocked = array_create(global.skin_count, false);
 global.skin_unlocked[0] = true; // basic skin is open
 
-// Skin prices
-global.skin_price = array_create(10, 0);
-global.skin_price[1] = 200;
-global.skin_price[2] = 500;
+// Skin array
+global.skin_preview = array_create(3);
 
+global.skin_preview[0] = spr_Player_0;
+global.skin_preview[1] = spr_Player_1;
+global.skin_preview[2] = spr_Player_2;
 
-function destroy_all_buttons() {
+// Delete buttons
+function destroy_menu_buttons() {
     with (obj_Button_Start) instance_destroy();
     with (obj_Button_Shop) instance_destroy();
+}
+
+function destroy_gameover_buttons() {
     with (obj_Button_Restart) instance_destroy();
     with (obj_Button_Menu) instance_destroy();
-	with (obj_Btn_Shop_GameOver) instance_destroy();
+    with (obj_Btn_Shop_GameOver) instance_destroy();
+}
+
+function destroy_store_buttons() {
+    with (obj_SkinButton) instance_destroy();
+    with (obj_Button_Back) instance_destroy();
 }

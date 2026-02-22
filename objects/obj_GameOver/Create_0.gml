@@ -5,8 +5,6 @@ restart_delay = obj_GameManager.game_fps * 0.5;
 
 restart_btn = noone;
 menu_btn = noone;
-shop_btn = noone;
-
 
 if (file_exists("save.ini")) {
     ini_open("save.ini");

@@ -30,12 +30,13 @@ if (obj_GameManager.state == GameState.GAME) {
 		x = next_x;
 		y = next_y;
 		
-        sprite_index = spr_Player_0_Fly;
+        sprite_index = spr_fly;
     }
   
 	// Basic mode
     else {
         vsp += grav;
+		var on_ground = place_meeting(x, y + 1, obj_Ground);
 
 		// Ground collision
         if (place_meeting(x, y + vsp, obj_Ground)) {
@@ -51,7 +52,7 @@ if (obj_GameManager.state == GameState.GAME) {
         y += vsp;
 
 		// Jump
-        if (keyboard_check_pressed(vk_space) && place_meeting(x, y + 1, obj_Ground)) {
+        if (keyboard_check_pressed(vk_space) && on_ground) {
             vsp = jump_force;
 			audio_play_sound(snd_jump, 1, false);
 			
@@ -61,10 +62,10 @@ if (obj_GameManager.state == GameState.GAME) {
 		
 		
 		// Change sprite
-        if (place_meeting(x, y + 1, obj_Ground)) {
-            sprite_index = spr_Player_0_Run;
+        if (on_ground) {
+            sprite_index = spr_run;
         } else {
-            sprite_index = spr_Player_0_Jump;
+            sprite_index = spr_jump;
         }
     }
 }

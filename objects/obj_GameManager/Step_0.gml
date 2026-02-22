@@ -23,7 +23,6 @@ if (state != prev_state) {
 			destroy_store_buttons();
 
 		    room_goto(rm_Game);
-			
 		    break;
 
         case GameState.GAMEOVER:
@@ -31,6 +30,7 @@ if (state != prev_state) {
             global.run_coins = 0;
             ini_open("save.ini");
             ini_write_real("Save", "Coins", global.total_coins);
+			ini_write_real("Save", "Skin", global.skin_current); 
             ini_close();
             break;
 		

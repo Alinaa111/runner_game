@@ -6,7 +6,7 @@
   "bbox_left":3,
   "bbox_right":34,
   "bbox_top":9,
-  "collisionKind":1,
+  "collisionKind":4,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
@@ -28,7 +28,7 @@
   ],
   "name":"spr_Player_2_Run",
   "nineSlice":null,
-  "origin":0,
+  "origin":9,
   "parent":{
     "name":"Sprites",
     "path":"folders/Sprites.yy",

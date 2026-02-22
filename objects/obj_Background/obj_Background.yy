@@ -1,11 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Background_Main",
+  "%Name":"obj_Background",
   "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_Background_Main",
+  "name":"obj_Background",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -29,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_Background_Main",
-    "path":"sprites/spr_Background_Main/spr_Background_Main.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
